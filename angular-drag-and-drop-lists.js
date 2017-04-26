@@ -170,7 +170,7 @@
         dndState.callback = undefined;
         element.removeClass("dndDragging");
         element.removeClass("dndDraggingSource");
-        event.stopPropagation();
+        // event.stopPropagation();
 
         // In IE9 it is possible that the timeout from dragstart triggers after the dragend handler.
         $timeout(function() { element.removeClass("dndDraggingSource"); }, 0);
@@ -362,7 +362,7 @@
         }
 
         element.addClass("dndDragover");
-        event.stopPropagation();
+        // event.stopPropagation();
         return false;
       });
 
@@ -425,7 +425,7 @@
 
         // Clean up
         stopDragover();
-        event.stopPropagation();
+        // event.stopPropagation();
         return false;
       });
 
