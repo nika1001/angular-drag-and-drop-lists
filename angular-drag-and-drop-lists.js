@@ -344,7 +344,7 @@
         // In IE we set a fake effectAllowed in dragstart to get the correct cursor, we therefore
         // ignore the effectAllowed passed in dataTransfer. We must also not access dataTransfer for
         // drops from external sources, as that throws an exception.
-        var ignoreDataTransfer = mimeType == MSIE_MIME_TYPE;
+        var ignoreDataTransfer = (mimeType == MSIE_MIME_TYPE || !event.dataTransfer.effectAllowed);
         var dropEffect = getDropEffect(event, ignoreDataTransfer);
         if (dropEffect == 'none') return stopDragover();
 
@@ -398,7 +398,7 @@
         }
 
         // Special handling for internal IE drops, see dragover handler.
-        var ignoreDataTransfer = mimeType == MSIE_MIME_TYPE;
+        var ignoreDataTransfer = (mimeType == MSIE_MIME_TYPE || !event.dataTransfer.effectAllowed);
         var dropEffect = getDropEffect(event, ignoreDataTransfer);
         if (dropEffect == 'none') return stopDragover();
 
