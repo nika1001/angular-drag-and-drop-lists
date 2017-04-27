@@ -94,9 +94,9 @@
       element.on('dragstart', function(event) {
         event = event.originalEvent || event;
 
-		if (event.isHandled) {
-			return;
-		}
+        if (event.isHandled) {
+          return;
+        }
 
         // Check whether the element is draggable, since dragstart might be triggered on a child.
         if (element.attr('draggable') == 'false') return true;
@@ -147,7 +147,7 @@
           dndState.callback = function(params) { return callback(scope, params || {}); };
         }
 
-		event.isHandled = true;
+        event.isHandled = true;
         //event.stopPropagation();
       });
 
@@ -160,8 +160,8 @@
         event = event.originalEvent || event;
 
         if (event.isHandled) {
-			return;
-		}
+          return;
+        }
 
         // Invoke callbacks. Usually we would use event.dataTransfer.dropEffect to determine
         // the used effect, but Chrome has not implemented that field correctly. On Windows
@@ -179,7 +179,7 @@
         dndState.callback = undefined;
         element.removeClass("dndDragging");
         element.removeClass("dndDraggingSource");
-		event.isHandled = true;
+        event.isHandled = true;
         //event.stopPropagation();
 
         // In IE9 it is possible that the timeout from dragstart triggers after the dragend handler.
@@ -320,9 +320,9 @@
       element.on('dragover', function(event) {
         event = event.originalEvent || event;
 		  
-		if (event.isHandled) {
-			return;
-		}
+        if (event.isHandled) {
+          return;
+        }
 
         // Check whether the drop is allowed and determine mime type.
         var mimeType = getMimeType(event.dataTransfer.types);
@@ -376,7 +376,7 @@
         }
 
         element.addClass("dndDragover");
-		event.isHandled = true;
+        event.isHandled = true;
         // event.stopPropagation();
         return false;
       });
@@ -389,9 +389,9 @@
       element.on('drop', function(event) {
         event = event.originalEvent || event;
 		  
-		if (event.isHandled) {
-			return;
-		}
+        if (event.isHandled) {
+          return;
+        }
 
         // Check whether the drop is allowed and determine mime type.
         var mimeType = getMimeType(event.dataTransfer.types);
@@ -444,7 +444,7 @@
 
         // Clean up
         stopDragover();
-		event.isHandled = true;
+        event.isHandled = true;
         // event.stopPropagation();
         return false;
       });
@@ -601,9 +601,9 @@
       element.on('dragstart', function(event) {
         event = event.originalEvent || event;
 		  
-		if (event.isHandled) {
-			return;
-		}
+        if (event.isHandled) {
+          return;
+        }
 
         if (!event._dndHandle) {
           // If a child element already reacted to dragstart and set a dataTransfer object, we will
@@ -652,8 +652,8 @@
         event = event.originalEvent || event;
 		  
         if (event.isHandled) {
-			return;
-		}
+          return;
+        }
         event._dndHandle = true;
       });
     };
