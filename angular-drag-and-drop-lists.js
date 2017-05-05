@@ -423,6 +423,10 @@
 
         // Invoke the callback, which can transform the transferredObject and even abort the drop.
         var index = getPlaceholderIndex();
+        if (index == -1) {
+          return stopDragover();
+        }
+		  
         if (attr.dndDrop) {
           data = invokeCallback(attr.dndDrop, event, dropEffect, itemType, index, data);
           if (!data) return stopDragover();
