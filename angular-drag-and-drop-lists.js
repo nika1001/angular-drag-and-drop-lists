@@ -498,6 +498,7 @@
        * dnd-allowed-types attribute. If the item Type is unknown (null), the drop will be allowed.
        */
       function isDropAllowed(itemType) {
+        if (Object.keys(listSettings).length === 0) return false;
         if (listSettings.disabled) return false;
         if (!listSettings.externalSources && !dndState.isDragging) return false;
         if (!listSettings.allowedTypes || itemType === null) return true;
@@ -624,9 +625,9 @@
       element.on('dragend', function(event) {
         event = event.originalEvent || event;
 		  
-		if (event.isHandled) {
-			return;
-		}
+        if (event.isHandled) {
+          return;
+        }
 		  
         if (!event._dndHandle) {
           event.isHandled = true;
