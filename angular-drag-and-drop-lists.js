@@ -461,7 +461,9 @@
         var newTarget = document.elementFromPoint(event.clientX, event.clientY);
         if (listNode.contains(newTarget) && !event._dndPhShown) {
           // Signalize to potential parent lists that a placeholder is already shown.
-          event._dndPhShown = true;
+          if (Array.prototype.indexOf.call(listNode.children, placeholderNode) != -1) {
+            event._dndPhShown = true;
+		  }
         } else {
           stopDragover();
         }
